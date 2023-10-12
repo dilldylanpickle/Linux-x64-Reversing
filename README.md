@@ -39,7 +39,7 @@ int main() {
 
 ### Static Analysis
 
-### a. Determine the File Type
+#### a. Determine the File Type
 
 First, we need to determine whether we are dealing with an executable, a shared library, or some other type of file.
 
@@ -97,3 +97,169 @@ The binary contains debugging information. This makes it easier to analyze, reve
 > 12. `not stripped`:
 
 Symbol and debugging information hasn't been removed from the binary. Stripping a binary makes it smaller and removes function names and other symbols, but it also makes it harder to reverse engineer or debug.
+
+#### b. Identify ASCII Strings
+
+The `strings` command in Linux is used to extract and display printable strings from a binary or any file. When analyzing binaries, especially in the context of reverse engineering, security research, or malware analysis, the `strings` command provides a quick and valuable insight into the potential behavior, functionality, or origin of a binary.
+
+***Terminal:***
+```bash
+dilldylanpickle@archlinux:~/Linux-x64-Reversing$ strings license-key
+/lib64/ld-linux-x86-64.so.2
+mgUa
+__cxa_finalize
+fgets
+__libc_start_main
+strcmp
+puts
+strlen
+stdin
+__stack_chk_fail
+printf
+libc.so.6
+GLIBC_2.4
+GLIBC_2.2.5
+GLIBC_2.34
+_ITM_deregisterTMCloneTable
+__gmon_start__
+_ITM_registerTMCloneTable
+PTE1
+u+UH
+uT54_cOn5O1E_COw60ys
+Enter your license key: 
+License key is valid!
+License key is invalid.
+:*3$"
+GCC: (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+_IO_buf_end
+input_key
+_old_offset
+_IO_save_end
+short int
+size_t
+input
+_IO_write_ptr
+_flags
+_IO_buf_base
+_markers
+_IO_read_end
+_freeres_buf
+fgets
+_lock
+long int
+printf
+_cur_column
+_IO_FILE
+unsigned char
+_IO_marker
+_shortbuf
+_IO_write_base
+_unused2
+_IO_read_ptr
+short unsigned int
+GNU C17 11.4.0 -mtune=generic -march=x86-64 -g -fasynchronous-unwind-tables -fstack-protector-strong -fstack-clash-protection -fcf-protection
+main
+strlen
+_freeres_list
+__pad5
+_IO_codecvt
+long unsigned int
+_IO_write_end
+__off64_t
+__off_t
+_chain
+_IO_wide_data
+_IO_backup_base
+stdin
+strcmp
+_flags2
+_mode
+_IO_read_base
+_vtable_offset
+check_license
+_IO_save_base
+_fileno
+_IO_lock_t
+license-key.c
+/home/dylan/Test
+/usr/lib/gcc/x86_64-linux-gnu/11/include
+/usr/include/x86_64-linux-gnu/bits
+/usr/include/x86_64-linux-gnu/bits/types
+/usr/include
+stddef.h
+types.h
+struct_FILE.h
+string.h
+stdio.h
+Scrt1.o
+__abi_tag
+crtstuff.c
+deregister_tm_clones
+__do_global_dtors_aux
+completed.0
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+license-key.c
+__FRAME_END__
+_DYNAMIC
+__GNU_EH_FRAME_HDR
+_GLOBAL_OFFSET_TABLE_
+__libc_start_main@GLIBC_2.34
+_ITM_deregisterTMCloneTable
+puts@GLIBC_2.2.5
+stdin@GLIBC_2.2.5
+_edata
+_fini
+strlen@GLIBC_2.2.5
+__stack_chk_fail@GLIBC_2.4
+printf@GLIBC_2.2.5
+fgets@GLIBC_2.2.5
+__data_start
+strcmp@GLIBC_2.2.5
+__gmon_start__
+__dso_handle
+_IO_stdin_used
+_end
+__bss_start
+main
+check_license
+__TMC_END__
+_ITM_registerTMCloneTable
+__cxa_finalize@GLIBC_2.2.5
+_init
+.symtab
+.strtab
+.shstrtab
+.interp
+.note.gnu.property
+.note.gnu.build-id
+.note.ABI-tag
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.init
+.plt.got
+.plt.sec
+.text
+.fini
+.rodata
+.eh_frame_hdr
+.eh_frame
+.init_array
+.fini_array
+.dynamic
+.data
+.bss
+.comment
+.debug_aranges
+.debug_info
+.debug_abbrev
+.debug_line
+.debug_str
+.debug_line_str
+```
