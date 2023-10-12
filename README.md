@@ -50,6 +50,13 @@ license-key: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamicall
 ```
 
 Let's break down the output of the `file` command for our `license-key` binary:
-> 1. ELF
+> 1. `ELF`
 
 This stands for "Executable and Linkable Format" and it's the standard binary format for Unix systems.
+
+> 2. 64-bit
+
+This indicates the architecture's bit-width. In this case, the binary is compiled for a 64-bit system.
+
+> 3. pie
+
