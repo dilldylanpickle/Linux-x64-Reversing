@@ -181,7 +181,7 @@ _IO_save_base
 _fileno
 _IO_lock_t
 license-key.c
-/home/dylan/Test
+/home/dilldylanpickle/Linux-x64-Reversing
 /usr/lib/gcc/x86_64-linux-gnu/11/include
 /usr/include/x86_64-linux-gnu/bits
 /usr/include/x86_64-linux-gnu/bits/types
@@ -264,4 +264,37 @@ _init
 .debug_line_str
 ```
 
-> 1. 
+Let's break down the typical kinds of strings we've extracted from the license-key binary:
+
+> 1. Library and System References:
+
+* `/lib64/ld-linux-x86-64.so.2`, `libc.so.6`, and other `.so` files: These are references to dynamic libraries. The binary might be using functions from these libraries.
+
+> 2. Function Names:
+
+* `fgets`, `strcmp`, `puts`, `strlen`, `printf`, `__libc_start_main`, etc.: These are standard library functions.
+* Their presence suggests the operations the binary might perform, e.g., `fgets` for reading input, `strcmp` for comparing strings.
+
+> 3. Custom or Non-Standard Strings:
+
+* `uT54_cOn5O1E_COw60ys`: Looks like some kind of encoded or obfuscated string.
+* `Enter your license key: `, `License key is valid!`, `License key is invalid.`: These strings are directly related to the program's functionality.
+
+> 4. Compiler and Debug Info:
+
+* GCC: (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0: Indicates the compiler version used.
+* `/home/dilldylanpickle/Linux-x64-Reversing`, `license-key.c`: Gives insights into the development environment and source file names.
+
+> 5. Standard Files and References:
+
+* Various headers like `string.h`, `stdio.h`, and system paths: Indicates usage of standard libraries or functions.
+
+> 6. Symbols and Relocations:
+
+* `.symtab`, `.strtab`, `.shstrtab`, `.dynsym`, `.dynstr`, `.rela.dyn`, `.rela.plt`, etc.: These are sections in the ELF format that pertain to symbols, their string representations, and relocation entries.
+
+
+> 7. Miscellaneous Information:
+
+* Various references like `__gmon_start__`, `_ITM_registerTMCloneTable`, and `__cxa_finalize` indicate specific functionalities or attributes of the binary.
+* Memory section names like `.text`, `.data`, `.bss` provide insight into the layout of the binary in memory.
