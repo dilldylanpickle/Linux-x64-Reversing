@@ -1,2 +1,3 @@
-# Pwntools-Cheatsheet
-A repo where I make notes and sutff for pwntools
+# Linux x64 Reversing
+
+Here is a step-by-step process on how I would reverse an x86-64 Linux binary!
